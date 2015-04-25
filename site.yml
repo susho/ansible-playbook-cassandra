@@ -1,0 +1,8 @@
+---
+
+- hosts: [ "node1", "node2" ]
+  user: vagrant
+  sudo: yes
+
+  roles:
+    - cassandra

@@ -1,0 +1,7 @@
+- name: Install some dependencies
+  apt: pkg={{ item }} state=installed update-cache=yes
+  with_items:
+  - git
+  - curl
+  - vim
+  tags: common-packages

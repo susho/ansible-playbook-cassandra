@@ -1,0 +1,12 @@
+- name: Add cassandra repository
+  apt_repository: repo="deb http://www.apache.org/dist/cassandra/debian 20x main"  state=present
+  tags: cassandra-packages
+
+- name: Install cassandra
+  apt: pkg=cassandra state=installed update-cache=yes force=yes
+  tags: cassandra-packages
+
+- name: Install cassandra config file
+  template: src=cassandra.yaml dest=/etc/cassandra/cassandra.yaml
+  notify: restart cassandra
+  tags: cassandra-packages
